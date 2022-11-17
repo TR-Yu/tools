@@ -21,3 +21,4 @@ jobs:
           debug: true
           dst_visibility: 'private'
           timeout: '1h'
+          static_list: "tools,notebook,Java-learning-code,notes"
