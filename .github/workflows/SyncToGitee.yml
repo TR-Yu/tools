@@ -19,4 +19,5 @@ jobs:
           clone_style: "ssh"
           force_update: true
           debug: true
+          dst_visibility: 'private'
           timeout: '1h'
