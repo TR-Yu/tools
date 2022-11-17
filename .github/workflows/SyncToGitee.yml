@@ -1,8 +1,10 @@
 name: SyncGithubToGiteeAllBranch
 on:
   push:
+    branches: [ master ]
   sechedule:
-    - cron: '0 18 * * *'
+  - cron: '0 18 * * *'
+
 jobs:
  repo-sync: 
     runs-on: ubuntu-latest
