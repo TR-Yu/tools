@@ -1,6 +1,6 @@
 name: SyncGithubToGiteeAllBranch
 on:
-  pull:
+  push:
   sechedule:
     - cron: '0 18 * * *'
 jobs:
