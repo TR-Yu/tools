@@ -1,5 +1,5 @@
-# 自用工具仓库集合
+# mybatis-generator
 
-本仓库为所有发布的仓库的集合不同branch表示不同的仓库
+mybatics简单代码生成模板项目,内有配置说明，直接配置好路径即可生成表到 Java 简单代码和 mapper 简单模板的生成
 
-* mybatic-generator mybatics简单代码生成模板项目
+* 生成项目的[官网链接] (http://mybatis.org/generator/index.html)

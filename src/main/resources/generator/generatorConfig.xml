@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!--
+可以生成其它项目，只要配置好绝对路径即可，可单独一个项目运行
+项目配置说明地址：http://mybatis.org/generator/configreference/context.html
+-->
+<generatorConfiguration>
+    <!--
+    The full path name of a JAR/ZIP file to add to the classpath, or a directory to add to the classpath.
+    jdbc 的驱动， 使用 maven 项目不配置
+    -->
+    <!--<classPathEntry location="/Program Files/java/mysqlfoj.zip" />-->
+
+    <!--
+    targetRuntime:
+    MyBatis3 除了生成语句 sample 语句;
+    MyBatis3Simple 只生成 简单的语句;
+    MyBatis3DynamicSql 需要额外的jar才可以使用;
+    defaultModelType="flat" 搭配 MyBatis3 和 MyBatis3Simple使用
+    -->
+    <context id="MySqlContext" targetRuntime="MyBatis3DynamicSql">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <commentGenerator>
+            <!-- 是否给生产的代码生成 comments ,默认 false-->
+            <property name="suppressAllComments" value="false"/>
+
+            <!--timestamp 是否生成 comments 默认 false-->
+            <property name="suppressDate" value="true"/>
+
+           <!-- 是否包括 table 和 column 上的 remarks 默认 false-->
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
+
+        <!--链接信息-->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://172.24.36.229:3306/SqlTest?serverTimezone=UTC"
+                        userId="mybatics"
+                        password="yren1994">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <!--设置是否Decimal 或是 numeric 类型 都转为 decimal 类型 默认false-->
+            <property name="forceBigDecimals" value="false" />
+            <!-- 使用 java.time 下的日期 LocalDate 系列取代 java.util.Date, 默认 false-->
+            <property name="useJSR310Types" value="true"/>
+        </javaTypeResolver>
+
+        <!--targetPackage: 生成的类包下位置， targetProject: 本地系统的绝对路径-->
+        <javaModelGenerator targetPackage="test.model"
+                            targetProject="D:\project\learning-code\sources\learning-java-base\jdbc\java-jdbc\src\main\java">
+
+            <!--是否生成构造器用于 Result map  ，默认为 false-->
+            <property name="constructorBased" value="false"/>
+
+            <!--是否生成子包，在 targetPackage 包下 默认为 false-->
+            <property name="enableSubPackages" value="true"/>
+
+            <!--是否将生成的例子对象放在不同包下，默认为 false-->
+            <property name="exampleTargetPackage" value="false"/>
+
+            <!--是否将数据库中的数据在生成的袋子中去除空格-->
+            <property name="trimStrings" value="true" />
+
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="test.xml"
+                         targetProject="D:\project\learning-code\sources\learning-java-base\jdbc\java-jdbc\src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="test.dao"
+                             targetProject="D:\project\learning-code\sources\learning-java-base\jdbc\java-jdbc\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--
+        tableName：表中的表名;
+        domainObjectName：默认为 table_name 转变 表的生成的类对象名称，可自定义
+        mapperName: 默认是 类对象 + Mapper,可自定义
+        一些生成的方法的控制，详见到官方说明 http://mybatis.org/generator/configreference/table.html
+        -->
+        <table tableName="sys_role">
+
+            <!--是否使用列表内的列的名称做为 Domain 对象属性， 默认 false-->
+            <property name="useActualColumnNames" value="false"/>
+
+            <!--
+            开启自增id获取
+            column: 自增列表
+            sqlSatement: 具体参数见 http://mybatis.org/generator/configreference/generatedKey.html
+            identity: 插入的 <selectKey> 标签在是否在 <insert> 后，默认为false
+            -->
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+
+            <!-- 设置列名改为自定义的名称
+            column 列名
+            javaType 全类名 调整映射对象，注意会被 JavaTypeResolver 类型重写
+            jdbcType 映射为对象的类型
+            typeHandler 配置类型处理器，为实现了 ‘TypeHandler' 接口的，全类名
+            -->
+            <!--<columnOverride column="DATE_FIELD" property="startDate"/> -->
+
+            <!--忽略指定列-->
+            <!-- <ignoreColumn column="FRED"/>-->
+        </table>
+
+    </context>
+</generatorConfiguration>
