@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>tech.tryu</groupId>
+    <artifactId>maven-demo-template</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <!-- 项目地址 -->
+    <url>https://github.com/TR-Yu/xxxxxx</url>
+    <modules>
+        <module>demo-module-copy</module>
+    </modules>
+
+    <!--JDK 保证 LTS 内最新版本，其它基础应用也默认为最新版本-->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <encoding>UTF-8</encoding>
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <log4j2.version>2.19.0</log4j2.version>
+        <slf4j.version>2.0.5</slf4j.version>
+        <junit5.version>5.9.0</junit5.version>
+        <mockito.version>1.10.19</mockito.version>
+        <maven-assembly-plugin>3.4.2</maven-assembly-plugin>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- https://logging.apache.org/log4j/2.x/log4j-slf4j-impl/-->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j2-impl</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit5.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>${maven-assembly-plugin}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--开发人员-->
+    <developers>
+        <developer>
+            <id>tryu</id>
+            <name>Tianren Yu</name>
+            <email>keepwarms@outlook.com</email>
+            <url>https://blog.tryu.tech/</url>
+        </developer>
+    </developers>
+
+    <!-- 项目许可证信息 -->
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
+</project>
+
+
