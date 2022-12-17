@@ -21,13 +21,20 @@
         <maven.compiler.target>17</maven.compiler.target>
         <log4j2.version>2.19.0</log4j2.version>
         <slf4j.version>2.0.5</slf4j.version>
-        <junit5.version>5.9.0</junit5.version>
-        <mockito.version>1.10.19</mockito.version>
+        <mockito.version>4.10.0</mockito.version>
+        <junit.version.bom>5.9.1</junit.version.bom>
         <maven-assembly-plugin>3.4.2</maven-assembly-plugin>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit.version.bom}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- https://logging.apache.org/log4j/2.x/log4j-slf4j-impl/-->
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
@@ -51,14 +58,8 @@
                 <version>${slf4j.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-engine</artifactId>
-                <version>${junit5.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
                 <groupId>org.mockito</groupId>
-                <artifactId>mockito-all</artifactId>
+                <artifactId>mockito-core</artifactId>
                 <version>${mockito.version}</version>
                 <scope>test</scope>
             </dependency>
