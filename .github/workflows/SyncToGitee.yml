@@ -20,5 +20,5 @@ jobs:
           force_update: true
           debug: true
           dst_visibility: 'private'
-          timeout: '1h'
-          static_list: "tools,notes,Java-learning-code"
+          timeout: '10m'
+          static_list: "tools,notes,java-base-demo"
