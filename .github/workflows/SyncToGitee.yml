@@ -21,4 +21,4 @@ jobs:
           debug: true
           dst_visibility: 'private'
           timeout: '10m'
-          static_list: "tools,notes,java-base-demo"
+          static_list: "tools,notes,automation"
